@@ -4,7 +4,4 @@
 # Ignore Gradle build output directory
 build/
 
-# Ignore Gradle wrapper directory (it will be downloaded for new users)
-gradle/
-
 .idea/
