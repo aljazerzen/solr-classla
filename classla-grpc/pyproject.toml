@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "classla-grpc"
+version = "0.1.0"
+description = ""
+authors = ["aljazerzen <aljaz.erzen@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+grpcio = "^1.46.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+grpcio-tools = "^1.46.3"
+black = {version = "^22.3.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

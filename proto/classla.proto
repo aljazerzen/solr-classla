@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "eu.murerzen.lucene_grpc.grpc";
+
+package classla;
+
+// Analyzer service definition.
+service Analyzer {
+    
+    rpc Analyze (AnalyzeRequest) returns (AnalyzeReply) {}
+}
+
+message AnalyzeRequest {
+    string text = 1;
+}
+
+message AnalyzeReply {
+    repeated Token tokens = 1;
+}
+
+message Token {
+    string lemma = 1;
+    string upos = 2;
+}
