@@ -22,7 +22,7 @@ import java.util.Queue;
 public class GrpcAnalyzer extends Analyzer {
     private static final Logger log = LoggerFactory.getLogger(GrpcAnalyzer.class);
 
-    private static final String SERVICE_URL = "localhost:50051";
+    private static final String DEFAULT_SERVICE_URI = "localhost:50051";
 
     private static final Channel channel = openChannel();
 
@@ -34,10 +34,15 @@ public class GrpcAnalyzer extends Analyzer {
     }
 
     protected static Channel openChannel() {
+        String targetUri = System.getenv("CLASSLA_GRPC_URI");
+        if (targetUri == null) {
+            targetUri = DEFAULT_SERVICE_URI;
+        }
+
         // Create a communication channel to the server, known as a Channel. Channels are thread-safe
         // and reusable. It is common to create channels at the beginning of your application and reuse
         // them until the application shuts down.
-        return ManagedChannelBuilder.forTarget(GrpcAnalyzer.SERVICE_URL)
+        return ManagedChannelBuilder.forTarget(targetUri)
                 // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
                 // needing certificates.
                 .usePlaintext()

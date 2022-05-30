@@ -29,6 +29,15 @@ Directory `proto` contains gRPC interface definition.
    </fieldType>
    ```
 
+### Docker
+
+There is docker-compose prepared. It builds two images, but requires lucene-grpc to be built outside of docker.
+
+    $ cd lucene-grpc
+    $ ./gradlew jar
+    $ cd ..
+    $ docker-compose up
+
 ### Development
 
 Build `lucene-grcp`:

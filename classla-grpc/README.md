@@ -2,14 +2,12 @@
 
 This project uses [poetry](https://python-poetry.org/) package manager.
 
-Install dependencies:
+Install dependencies (requires Python 3.8):
 
+    $ poetry env use python3.8
     $ poetry install
 
-There is a dependency resolution problem with `classla` at the moment. As a workadround, install it with pip:
-
-    $ poetry shell
-    $ pip install classla
+Python 3.8 is required because `torch`, a dependecy of `classla`, is not available for newer versions.
 
 Now you can run the server:
 

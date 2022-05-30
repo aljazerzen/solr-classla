@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+
+  solr:
+    build: ./lucene-grpc
+
+    ports:
+      - 8983:8983
+    volumes:
+      - data:/var/solr
+    command:
+      - solr-precreate
+      - gettingstarted
+    environment:
+      - 'CLASSLA_GRPC_URI=classla:50051'
+
+  classla:
+    build: ./classla-grpc
+
+    volumes:
+      - classla_resources:/app/classla_resources
+
+
+volumes:
+  data:
+  classla_resources:
+
+      
+      
